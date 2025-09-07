@@ -1,6 +1,6 @@
 package co.unicauca.DDD.application.service;
 
-import co.unicauca.DDD.domain.model.ProductoRepository;
+import co.unicauca.DDD.domain.repository.ProductoRepository;
 import co.unicauca.DDD.domain.service.ProductoDomainService;
 
 public class ProductoService {

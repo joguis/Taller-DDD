@@ -1,4 +1,7 @@
-package co.unicauca.DDD.domain.model;
+package co.unicauca.DDD.domain.repository;
+
+import co.unicauca.DDD.domain.model.Categoria;
+import co.unicauca.DDD.domain.model.Producto;
 
 import java.util.List;
 import java.util.UUID;
