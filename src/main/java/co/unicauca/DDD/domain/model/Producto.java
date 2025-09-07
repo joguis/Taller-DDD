@@ -1,16 +1,49 @@
 package co.unicauca.DDD.domain.model;
 
-import java.util.UUID;
+import lombok.Getter;
 
+import java.util.List;
+import java.util.Objects;
+
+@Getter
 public class Producto {
-    private final UUID id;
+    private Long id;
     private String nombre;
-    private String descripcion;
     private Categoria categoria;
+    private Disponibilidad disponibilidad;
+    private Temporada temporada;
+    private TipoProduccion tipoProduccion;
+    private List<ImagenProducto> imagenes;
+    private String descripcion;
 
-    public Producto(UUID id, String nombre, Categoria categoria) {
+    public Producto(Long id, String nombre, Categoria categoria,
+                    Disponibilidad disponibilidad, Temporada temporada,
+                    TipoProduccion tipoProduccion, List<ImagenProducto> imagenes,
+                    String descripcion) {
         this.id = id;
         this.nombre = nombre;
         this.categoria = categoria;
+        this.disponibilidad = disponibilidad;
+        this.temporada = temporada;
+        this.tipoProduccion = tipoProduccion;
+        this.imagenes = imagenes;
+        this.descripcion = descripcion;
+    }
+
+    public void cambiarDisponibilidad(Disponibilidad nuevaDisponibilidad) {
+        this.disponibilidad = nuevaDisponibilidad;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Producto)) return false;
+        Producto producto = (Producto) o;
+        return Objects.equals(id, producto.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }
