@@ -5,8 +5,11 @@ import lombok.Setter;
 
 import java.util.Objects;
 
+import jakarta.persistence.Entity;
+
 @NoArgsConstructor
 @Setter
+@Entity
 public class Categoria {
     private Long id;
     private String nombre;

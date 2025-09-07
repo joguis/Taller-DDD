@@ -3,11 +3,16 @@ package co.unicauca.DDD.domain.model;
 import java.util.List;
 import java.util.Objects;
 
+import jakarta.persistence.Entity;
+import lombok.Getter;
+
+@Entity
+@Getter
 public class Producto {
     private Long id;
     private String nombre;
-    private Categoria categoria;
-    private Disponibilidad disponibilidad;
+    private Categoria categoria;//Uso del agregado
+    private Disponibilidad disponibilidad;//Uso del objeto de valor
     private Temporada temporada;
     private TipoProduccion tipoProduccion;
     private List<ImagenProducto> imagenes;
@@ -27,17 +32,9 @@ public class Producto {
         this.descripcion = descripcion;
     }
 
-    public Long getId() { return id; }
-    public String getNombre() { return nombre; }
-    public Categoria getCategoria() { return categoria; }
-    public Disponibilidad getDisponibilidad() { return disponibilidad; }
-    public Temporada getTemporada() { return temporada; }
-    public TipoProduccion getTipoProduccion() { return tipoProduccion; }
-    public List<ImagenProducto> getImagenes() { return imagenes; }
-    public String getDescripcion() { return descripcion; }
-
-    public void cambiarDisponibilidad(Disponibilidad nuevaDisponibilidad) {
-        this.disponibilidad = nuevaDisponibilidad;
+    //Métodos del modelo de negocio
+    public Disponibilidad cambiarDisponibilidad(Disponibilidad nuevaDisponibilidad) {
+        return this.disponibilidad = nuevaDisponibilidad;
     }
 
     @Override

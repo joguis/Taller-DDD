@@ -2,6 +2,13 @@ package co.unicauca.DDD.domain.model;
 
 import java.util.Objects;
 
+
+/**
+ * Objeto de valor que represena si un producto está disponible o no y su stock.
+ * @author María Camila Hoyos Gómez
+ * @author José Guillermo Segura Casas
+ * @author Jeison Andrés Vallejo Vallejo
+ */
 public class Disponibilidad {
     private final boolean disponible;
     private final int stock;
