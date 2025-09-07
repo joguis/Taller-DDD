@@ -1,10 +1,7 @@
 package co.unicauca.DDD.domain.model;
 
-import lombok.Getter;
-
 import java.util.Objects;
 
-@Getter
 public class ImagenProducto {
     private final String url;
     private final String descripcion;
@@ -16,6 +13,9 @@ public class ImagenProducto {
         this.url = url;
         this.descripcion = descripcion;
     }
+
+    public String getUrl() { return url; }
+    public String getDescripcion() { return descripcion; }
 
     @Override
     public boolean equals(Object o) {

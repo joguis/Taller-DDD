@@ -1,11 +1,8 @@
 package co.unicauca.DDD.domain.model;
 
-import lombok.Getter;
-
 import java.util.List;
 import java.util.Objects;
 
-@Getter
 public class Producto {
     private Long id;
     private String nombre;
@@ -29,6 +26,15 @@ public class Producto {
         this.imagenes = imagenes;
         this.descripcion = descripcion;
     }
+
+    public Long getId() { return id; }
+    public String getNombre() { return nombre; }
+    public Categoria getCategoria() { return categoria; }
+    public Disponibilidad getDisponibilidad() { return disponibilidad; }
+    public Temporada getTemporada() { return temporada; }
+    public TipoProduccion getTipoProduccion() { return tipoProduccion; }
+    public List<ImagenProducto> getImagenes() { return imagenes; }
+    public String getDescripcion() { return descripcion; }
 
     public void cambiarDisponibilidad(Disponibilidad nuevaDisponibilidad) {
         this.disponibilidad = nuevaDisponibilidad;

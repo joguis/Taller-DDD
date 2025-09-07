@@ -1,11 +1,8 @@
 package co.unicauca.DDD.domain.model;
 
-import lombok.Getter;
-
 import java.time.LocalDate;
 import java.util.Objects;
 
-@Getter
 public class Temporada {
     private final LocalDate fechaInicio;
     private final LocalDate fechaFin;
@@ -22,6 +19,9 @@ public class Temporada {
         return (fecha.isEqual(fechaInicio) || fecha.isAfter(fechaInicio)) &&
                 (fecha.isEqual(fechaFin) || fecha.isBefore(fechaFin));
     }
+
+    public LocalDate getFechaInicio() { return fechaInicio; }
+    public LocalDate getFechaFin() { return fechaFin; }
 
     @Override
     public boolean equals(Object o) {

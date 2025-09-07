@@ -1,10 +1,12 @@
 package co.unicauca.DDD.domain.model;
 
-import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.Objects;
 
-@Getter
+@NoArgsConstructor
+@Setter
 public class Categoria {
     private Long id;
     private String nombre;
@@ -13,6 +15,9 @@ public class Categoria {
         this.id = id;
         this.nombre = nombre;
     }
+
+    public Long getId() { return id; }
+    public String getNombre() { return nombre; }
 
     @Override
     public boolean equals(Object o) {

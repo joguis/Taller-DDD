@@ -1,10 +1,7 @@
 package co.unicauca.DDD.domain.model;
 
-import lombok.Getter;
-
 import java.util.Objects;
 
-@Getter
 public class Disponibilidad {
     private final boolean disponible;
     private final int stock;
@@ -16,6 +13,9 @@ public class Disponibilidad {
         this.disponible = disponible;
         this.stock = stock;
     }
+
+    public boolean isDisponible() { return disponible; }
+    public int getStock() { return stock; }
 
     @Override
     public boolean equals(Object o) {

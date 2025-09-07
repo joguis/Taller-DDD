@@ -1,10 +1,7 @@
 package co.unicauca.DDD.domain.model;
 
-import lombok.Getter;
-
 import java.util.Objects;
 
-@Getter
 public class TipoProduccion {
     private final String tipo; // Ejemplo: "Orgánico", "Industrial", "Artesanal"
 
@@ -14,6 +11,8 @@ public class TipoProduccion {
         }
         this.tipo = tipo;
     }
+
+    public String getTipo() { return tipo; }
 
     @Override
     public boolean equals(Object o) {
