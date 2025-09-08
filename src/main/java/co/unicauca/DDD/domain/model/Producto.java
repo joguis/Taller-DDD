@@ -32,6 +32,21 @@ public class Producto {
         this.descripcion = descripcion;
     }
 
+
+
+    public Producto(Long id, String nombre, Categoria categoria, Disponibilidad disponibilidad, String descripcion) {
+        this.id = id;
+        this.nombre = nombre;
+        this.categoria = categoria;
+        this.disponibilidad = disponibilidad;
+        this.descripcion = descripcion;
+        this.temporada = null;
+        this.tipoProduccion = null;
+        this.imagenes = null;
+    }
+
+
+
     //Métodos del modelo de negocio
     public Disponibilidad cambiarDisponibilidad(Disponibilidad nuevaDisponibilidad) {
         return this.disponibilidad = nuevaDisponibilidad;
