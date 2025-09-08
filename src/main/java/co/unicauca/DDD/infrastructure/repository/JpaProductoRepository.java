@@ -3,14 +3,44 @@ package co.unicauca.DDD.infrastructure.repository;
 import co.unicauca.DDD.domain.model.Producto;
 import co.unicauca.DDD.domain.model.Categoria;
 import co.unicauca.DDD.domain.repository.ProductoRepository;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 
-@Repository
-public interface JpaProductoRepository extends JpaRepository<Producto, Long>, ProductoRepository {
+/**
+ * Implementación del repositorio
+ */
+public class JpaProductoRepository implements ProductoRepository {
 
-    // Spring Data JPA creará la query automáticamente
-    List<Producto> findByCategoria(Categoria categoria);
+    private final Map<Long, Producto> bdProductos = new HashMap<>();
+    
+    @Override
+    public Producto guardar(Producto objProducto){
+        bdProductos.put(objProducto.getId(), objProducto);
+        return objProducto;
+    }
+
+    @Override
+    public Optional<Producto> buscarPorId(Long id){
+        return Optional.ofNullable(bdProductos.get(id));
+    }
+
+    @Override
+    public List<Producto> buscarTodos(){
+        return List.copyOf(bdProductos.values());
+    }
+
+    @Override
+    public List<Producto> buscarPorCategoria(Categoria categoria){
+        return bdProductos.values().stream()
+                .filter(p -> p.getCategoria().equals(categoria))
+                .toList();
+    }
+
+    @Override
+    public void eliminar(Long id){
+        bdProductos.remove(id);
+    }
 }

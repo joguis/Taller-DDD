@@ -15,8 +15,7 @@ public class ProductoService {
     private final ProductoRepository productoRepository;
     private final ProductoDomainService productoDomainService;
 
-    public ProductoService(ProductoRepository productoRepository,
-                           ProductoDomainService productoDomainService) {
+    public ProductoService(ProductoRepository productoRepository, ProductoDomainService productoDomainService) {
         this.productoRepository = productoRepository;
         this.productoDomainService = productoDomainService;
     }

@@ -8,7 +8,7 @@ import java.util.Optional;
 
 public interface ProductoRepository {
 
-    Producto guardar(Producto producto);
+    Producto guardar(Producto objProducto);
 
     Optional<Producto> buscarPorId(Long id);
 
